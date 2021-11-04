@@ -3,7 +3,6 @@ package com.projects.timesheetapi.controller;
 import com.projects.timesheetapi.model.TimeSheetRequest;
 import com.projects.timesheetapi.model.TimeSheetResponse;
 import com.projects.timesheetapi.service.TimeSheetService;
-import com.projects.timesheetapi.service.TimeSheetServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
