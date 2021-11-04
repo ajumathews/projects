@@ -18,7 +18,7 @@ public class TimeSheetServiceImpl implements TimeSheetService {
 
     @Override
     public TimeSheetRequest add(TimeSheetRequest timeSheetRequest) {
-        TimeSheet timeSheet = TimeSheet.toDomain(timeSheetRequest);
+        TimeSheet timeSheet = TimeSheet.of(timeSheetRequest);
         timeSheetRepository.insert(timeSheet);
         return timeSheetRequest;
     }

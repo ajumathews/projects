@@ -19,7 +19,7 @@ public class TimeSheet {
     private String date;
     private String desc;
 
-    public static TimeSheet toDomain(TimeSheetRequest timeSheetRequest) {
+    public static TimeSheet of(TimeSheetRequest timeSheetRequest) {
         return TimeSheet.builder()
                 .date(timeSheetRequest.getDate())
                 .desc(timeSheetRequest.getDesc())
