@@ -2,6 +2,11 @@ plugins {
 	id 'org.springframework.boot' version '2.5.6'
 	id 'io.spring.dependency-management' version '1.0.11.RELEASE'
 	id 'java'
+
+	/* docker plugin*/
+	id "com.palantir.docker" version "0.22.1"
+	id "com.palantir.docker-run" version "0.22.1"
+
 }
 
 group = 'com.projects'
@@ -34,4 +39,19 @@ dependencies {
 
 test {
 	useJUnitPlatform()
+}
+
+
+docker {
+	name "${project.name}:${project.version}"
+	dockerfile file('Dockerfile')
+	copySpec.from("build/libs").into("libs")
+	buildArgs(['JAR_FILE':"libs/*.jar"])
+}
+
+dockerRun {
+	name "${project.name}-container"
+	image "${project.name}:${project.version}"
+	ports '8080:8080'
+	clean true
 }
